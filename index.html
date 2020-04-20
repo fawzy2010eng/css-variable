@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="holiday count down calculator">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: aqua
+        }
+
+        h4{
+            font-size: 32px;
+            font-weight: 200
+        }
+        .main{
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%
+        }
+        .main div{
+            width: 30%;
+            float: left;
+        }
+        .blur{
+            margin-left: 5%;
+            margin-right: 5%
+        }
+        .main div h3{
+            float: left;
+            line-height: 0px
+        }
+        img{
+            border: 0px solid green;
+        }
+    </style>
+    <title>css variables</title>
+</head>
+<body>
+    <h4>Update CSS Variables with JS</h4>
+    <div class="main">
+        
+        <div class="spacing">
+            <h3>spacing</h3>
+            <input type="range" min="0" max="40" value="0">
+        </div>
+
+        <div class="blur">
+            <h3>blur</h3>
+            <input type="range" min="0" max="15" value="0">
+        </div>
+
+        <div class="base">
+            <h3>base color</h3>
+            <input type="color" value="#00ff00">
+        </div>
+    
+    </div>
+    
+    <img src="pic03.jpg">
+    
+    <script>
+        'use strict'
+        var base = document.querySelector('.base > input');
+        var blur = document.querySelector('.blur > input');
+        var spacing = document.querySelector('.spacing > input');
+        var img = document.querySelector('img');
+
+        base.addEventListener('change',getbase);
+        blur.addEventListener('change',getblur);
+        spacing.addEventListener('change',getspace);
+
+
+        function getbase(){
+            img.style.borderColor = this.value
+        }
+
+        function getblur(){
+            img.style.filter = `blur(${this.value}px)`
+        }
+
+        function getspace(){
+            img.style.borderWidth = `${this.value}px`
+        }
+    </script>    
+</body>
+</html>
